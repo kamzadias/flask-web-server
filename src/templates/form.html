@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<style>
+    body{
+        background: #373B44;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+    .block{
+        margin: 0 auto;
+        max-width: 1100px;
+    }
+    form{
+        margin: 0 auto;
+        width: 710px;
+        display: flex;
+        height: 40px;
+        
+    }
+    form input{
+        width: 500px!important;
+        margin-left: 40px;
+    }
+    form button{
+        width: 100px!important;
+        margin: 0 auto;
+        padding-bottom: 30px!important;
+    }
+    .title{
+        margin-top: 30px!important;
+        margin-bottom: 30px;
+    }
+    .title h1{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+    }
+    .title h1 span{
+        color: lightsalmon
+    }
+    table{
+        margin-top: 30px;
+        border: white 2px solid;
+    }
+    table tr{
+        color: white;
+        border: white 2px solid;
+    }
+    table tr td{
+        border: white 2px solid;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="block">
+            <div class="title">
+                <h1>Web Server to find news about <span>cryptocurrencies</span></h1>
+            </div>
+            {% block body %}
+        	<form action="/coin" method = "POST">
+        		<input type="text" class="form-control" name = "name" placeholder="Input cryptocurrency..."/>
+        		<button type="submit" class="btn btn-primary" value = "Submit" >Submit</button>
+        	</form>
+        		<table class="table">
+        			{% for new in allNews %}
+                            <tr>
+                                <td style="width: 55%;">
+                                    <h2 style="font-size: 16px!important">{{new.text}}</h2>
+                                </td>
+                                <td style="width: 45%;">
+                                        {{summarizer (new.text, max_length=40, min_length=0, do_sample=False)}}
+                                </td>
+                            </tr>
+                        {% endfor %}
+        		</table>
+        	{% endblock %}
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
