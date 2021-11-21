@@ -2,7 +2,7 @@
 Flask web server, where user can to login a user from PostgreSQL database and find news about cryptocurrencies.
 
 Project done by:
-- Dias Kamza,SE-2001
+- Dias Kamza, SE-2001
 - Erkebulan Zhigerbayev, SE-2001
 - Yerassyl Ussen, SE-2001
 
@@ -59,6 +59,8 @@ http://127.0.0.1:5000/login
 ```
 - Type user information (name,password) from database and click submit button
 - Type cryptocurrency name and wait until the operation is completed
-- At the end you will have a result similar to this picture
+
+#### At the end you will have a result similar to this picture
+
 ![image](https://user-images.githubusercontent.com/68639981/142755705-3de1bedc-d706-441c-81f9-178e8164d61d.png)
 
